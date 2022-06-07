@@ -1,4 +1,3 @@
-import imp
 from flask_sqlalchemy import SQLAlchemy
 from urllib.parse import quote
 from flask import Flask
@@ -7,8 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-passwd = os.getenv("passwd")
-database_name = os.getenv("database_name")
+passwd = os.getenv("passwd")                # Your db password
+database_name = os.getenv("database_name")  # Your db name
 
 socket.getaddrinfo('localhost', 25)
 
@@ -20,9 +19,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['MYSQL_PASSWORD'] = '8451841454aA@'
 # app.config['MYSQL_DB'] = 'database_interactions'
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app)    # initialize db
 
 
+
+# create db models with their default constructors to make their objects
+# and add them in database using sqlalchemy.
 class Users(db.Model):
     id_users = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)

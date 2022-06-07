@@ -1,16 +1,26 @@
 import mysql.connector as connect
+from dotenv import load_dotenv
+import os
 
-conn = connect.connect(
-    host="localhost",
-    user="root",
-    passwd="8451841454aA@",
-    auth_plugin="caching_sha2_password"
-)
+load_dotenv()
 
-cursor = conn.cursor()
+def create_database():
 
-# to create the database
-# cursor.execute("CREATE DATABASE database_interactions")
-cursor.execute("SHOW DATABASES")
-for db in cursor:
-    print(db)
+    conn = connect.connect(
+        host="localhost",
+        user="root",
+        passwd=os.getenv("passwd"),
+        auth_plugin="caching_sha2_password"
+    )
+
+    cursor = conn.cursor()
+
+    # to create the database
+    cursor.execute("CREATE DATABASE {0}".format(os.getenv("passwd")))
+    cursor.execute("SHOW DATABASES")
+    for db in cursor:
+        print(db)
+
+
+# Call this to execute the above operation
+# create_database()
