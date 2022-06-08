@@ -2,7 +2,4 @@
 CRUD Operations using REST API
 
 
-<p float="left">
-  <img src="https://img.shields.io/badge/Python-3.9.5-blue.svg" width="100px" />
-  <img src="https://img.shields.io/badge/Flask-2.0-green.svg" width="100px" /> 
-</p>
+<p float="center"> <img src="https://github.com/jalbertsr/logo-badge-images/blob/master/img/rsz_flask.png?raw=true" width="100" /> </p>
