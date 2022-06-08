@@ -1,5 +1,4 @@
 import json, requests
-from turtle import pos
 
 from main import Address, Comments, Company, db, Users, posts
 
